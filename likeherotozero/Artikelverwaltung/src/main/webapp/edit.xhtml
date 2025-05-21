@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+  <h:head>
+    <title>CO2 Emissionsdaten bearbeiten</title>
+  </h:head>
+  <h:body>
+    <h1>CO2 Emissionsdaten bearbeiten</h1>
+    <h:form id="editForm">
+      <h:dataTable value="#{emissionsdatenBean.alleEmissionen}" var="emission">
+        <h:column>
+          <f:facet name="header">Land</f:facet>
+          <h:inputText value="#{emission.land}" />
+        </h:column>
+        <h:column>
+          <f:facet name="header">CO2-Emissionen</f:facet>
+          <h:inputText value="#{emission.co2Emissionen}" />
+        </h:column>
+      </h:dataTable>
+      <h:commandButton value="Änderungen speichern" action="#{emissionsdatenBean.speichern}" />
+      <h:messages globalOnly="true" layout="table" style="color:red;" />
+    </h:form>
+  </h:body>
+</html>
